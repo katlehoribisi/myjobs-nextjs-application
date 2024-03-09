@@ -2,7 +2,6 @@
 import {UploadOutlined} from "@ant-design/icons"
 import {Upload} from "antd"
 import { Card, Space } from 'antd';
-import { Button } from 'antd';
 import Login from "./login/page";
 
 import styles from "./page.module.css";
