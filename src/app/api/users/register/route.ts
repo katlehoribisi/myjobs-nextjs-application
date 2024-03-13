@@ -1,16 +1,14 @@
+'using client';
+
 // using next you can use HTTP request 
 import { connectDB } from "@/app/config/dbConfig";
-import type { NextApiRequest, NextApiResponse } from 'next'
-
+import { NextRequest, NextResponse } from "next/server";
 connectDB();
 
- 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    console.log("test")
-  } else {
-    // Handle any other HTTP method
-  }
+export async function POST(request: NextRequest){
+  return NextResponse.json({
+    message: "users/register api accessed with post method"
+  })
 }
  
 
