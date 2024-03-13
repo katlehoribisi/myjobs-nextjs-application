@@ -1,64 +1,53 @@
 "use client"
 import React from 'react'
-import { Button, Checkbox, Form, type FormProps, Input } from 'antd';
+import { Button, Form, Radio} from 'antd'
+import '../stylesheets/commonClasses.css'
+import '../stylesheets/antdOverride.css'
+import '../stylesheets/antdOverride.css'
 
-type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: string;
-};
-
-const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
+import Link from 'next/link'
 
 
 function Login() {
+
+  const onFinish = (values: any) => {
+    console.log("Success: ", values)
+  }
+
+
   return (
-    <Form
-    name="basic"
-    labelCol={{ span: 8 }}
-    wrapperCol={{ span: 16 }}
-    style={{ maxWidth: 600 }}
-    initialValues={{ remember: true }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <Form.Item<FieldType>
-      label="Username"
-      name="username"
-      rules={[{ required: true, message: 'Please input your username!' }]}
-    >
-      <Input />
-    </Form.Item>
+    <div className='flex justify-center h-screen items-center bg-primary'>
+      <div className="card p-5 w-500">
+        <h1 className='text-xl text-center'>MyJobs - Login</h1>
+        <hr />
 
-    <Form.Item<FieldType>
-      label="Password"
-      name="password"
-      rules={[{ required: true, message: 'Please input your password!' }]}
-    >
-      <Input.Password />
-    </Form.Item>
+        <Form
+          onFinish={onFinish}
+          layout='vertical'
+          className='px-3'>
 
-    <Form.Item<FieldType>
-      name="remember"
-      valuePropName="checked"
-      wrapperCol={{ offset: 8, span: 16 }}
-    >
-      <Checkbox>Remember me</Checkbox>
-    </Form.Item>
+          <Form.Item label="Login As: " name="userType">
+            <Radio.Group>
+              <Radio value="employer">Employer</Radio>
+              <Radio value="employee">Employee </Radio>
+            </Radio.Group>
 
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
-    </Form.Item>
-  </Form>
+          </Form.Item>
+
+          <Form.Item label="Email: " name="email">
+            <input type="email" className='input' />
+          </Form.Item>
+
+          <Form.Item label="Password: " name="password">
+            <input type="password" className='input' />
+          </Form.Item>
+
+          <Button type='primary' htmlType='submit' block className='my-2'>Login</Button>
+          <Link href={'./register'}>Don't have an account? Register</Link>
+        </Form>
+
+      </div>
+    </div>
   )
 }
 

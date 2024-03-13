@@ -2,6 +2,7 @@
 import React from 'react'
 import { ConfigProvider } from 'antd';
 
+
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
@@ -10,7 +11,7 @@ export default function LayoutProvider({ children }: { children: React.ReactNode
                     theme={{
                         token: {
                             // Seed Token
-                            colorPrimary: '#00b96b',
+                            colorPrimary: '#E178C5',
                         },
                     }}
                 >

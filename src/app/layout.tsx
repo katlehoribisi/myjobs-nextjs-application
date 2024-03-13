@@ -1,5 +1,10 @@
+// Import Stylesheets
 import "../app/globals.css"
-import LayoutProvider from "./components/layoutProvider";
+import "./stylesheets/antdOverride.css"
+import "./stylesheets/commonClasses.css"
+import "./stylesheets/layout.css"
+
+import LayoutProvider from "./components/LayoutProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

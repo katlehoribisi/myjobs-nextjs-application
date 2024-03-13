@@ -213,11 +213,6 @@
     z-index: 1;
   }
 }
-    .job {
-        text-align: center;
-        color: blue;
-    }
-
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
