@@ -1,6 +1,11 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const userSchema = new mongoose.Schema({
+    userType: {
+        type: String,
+        required: true,
+        default: "employee",
+    },
     name: {
         type: String,
         required: true,
@@ -24,8 +29,10 @@ const userSchema = new mongoose.Schema({
 });
 
 // Delete old model
-const userModel = mongoose.model('user',userSchema);
-mongoose.deleteModel(userModel.modelName)
+if (mongoose.models.users) {
+    const userModel = mongoose.model('user', userSchema);
+    mongoose.deleteModel(userModel.modelName)
+}
 
 // Create new model
 const User = mongoose.model("users", userSchema)
