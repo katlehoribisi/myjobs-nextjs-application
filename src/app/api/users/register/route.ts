@@ -19,9 +19,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Hash password 
-    // const salt = await bcrypt.genSalt(10)
-    // const hashedPassword = await bcrypt.hash(reqBody.password, salt)
-    // reqBody.password = hashedPassword
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(reqBody.password, salt)
+    reqBody.password = hashedPassword
 
     // Create user
     await User.create(reqBody)
