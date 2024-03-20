@@ -5,7 +5,7 @@ import { connectDB } from "@/app/config/dbConfig";
 import { NextRequest, NextResponse } from 'next/server'
 import User from "@/models/userModel"
 import bcrypt from 'bcryptjs'
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 connectDB();
 
 export async function POST(request: NextRequest) {
