@@ -3,8 +3,9 @@ import React from "react";
 import { Button, Form, Radio, message } from "antd";
 import Link from "next/link";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 
 
 import '../stylesheets/commonClasses.css'
@@ -15,16 +16,20 @@ import '../stylesheets/antdOverride.css'
 
 function Login() {
 
+  const router = useRouter();
   const onFinish = async (values: any) => {
+
+
     try {
       const response = await axios.post("/api/users/login", values);
       message.success(response.data.message)
-    } catch (error:any) {
+      router.push("./")
+    } catch (error: any) {
       message.error(error.response.data.message || 'Something went wrong')
     }
   }
 
-  
+
 
   return (
     <div className='flex justify-center h-screen items-center bg-primary'>
