@@ -17,9 +17,8 @@ import '../stylesheets/antdOverride.css'
 function Login() {
 
   const router = useRouter();
+
   const onFinish = async (values: any) => {
-
-
     try {
       const response = await axios.post("/api/users/login", values);
       message.success(response.data.message)
